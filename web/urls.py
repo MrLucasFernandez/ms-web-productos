@@ -5,5 +5,5 @@ app_name = 'web'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('/form', views.post_producto, name='formulario')
+    path('form/', views.post_producto, name='formulario')
 ]

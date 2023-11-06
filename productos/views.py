@@ -18,7 +18,7 @@ def ListarProductos(request):
 
 @api_view(["GET"])
 def FiltrarProducto(request, pk):
-    productos = Producto.objects.get(id=pk)
+    productos = Producto.objects.get(id_producto=pk)
     serializer = ProductosSerializer(productos, many=False)
     return Response(serializer.data)
 
@@ -50,4 +50,4 @@ def EliminarProducto(request, pk):
     productos = Producto.objects.get(id=pk)
     productos.delete()
 
-    return Response('Eliminado')
+    return Response('Producto eliminado')
