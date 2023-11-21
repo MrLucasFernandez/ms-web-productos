@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-wmdrp!-8t@*!)3tu-a4g_(h-wr57t()blnn!id&9hh=7+_9u+r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','44.215.197.102']
 
 
 # Application definition
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'productos',
-    'web',
     'rest_framework',
 ]
 
@@ -78,8 +77,15 @@ WSGI_APPLICATION = 'apiRestServiExpress.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'api_rest_django',
+        'USER': 'mysql',
+        'PASSWORD': 'password',
+        'HOST': 'mysql_db',
+        'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        }
     }
 }
 

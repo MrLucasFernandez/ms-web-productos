@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Producto
-from .serializers import ProductosSerializer
+from .models import Producto, Categoria
+from .serializers import ProductosSerializer, CategoriasSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
@@ -9,6 +9,12 @@ from rest_framework.response import Response
 #def inicio(request):
 #    context={}
 #    return render(request, 'productos/index.html',context)
+@api_view(["GET"])
+def ListarCategorias(request):
+    categorias = Categoria.objects.all()
+    serializer = CategoriasSerializer(categorias, many=True)
+    return Response(serializer.data)
+
 
 @api_view(["GET"])
 def ListarProductos(request):
