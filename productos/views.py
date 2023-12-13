@@ -41,7 +41,7 @@ def CrearProducto(request):
 
 @api_view(['POST'])
 def ActualizarProducto(request, pk):
-    productos = Producto.objects.get(id=pk)
+    productos = Producto.objects.get(id_producto=pk)
     serializer = ProductosSerializer(instance=productos, data=request.data)
 
     if serializer.is_valid():
@@ -53,7 +53,7 @@ def ActualizarProducto(request, pk):
 
 @api_view(['DELETE'])
 def EliminarProducto(request, pk):
-    productos = Producto.objects.get(id=pk)
+    productos = Producto.objects.get(id_producto=pk)
     productos.delete()
 
     return Response('Producto eliminado')
